@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
         <nav class="navbar">
             <div class="logo">
@@ -19,6 +19,7 @@
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Layanan</a></li>
+                <li><a href="#gallery">Galeri</a></li>
                 <li><a href="#footer">Kontak</a></li>
                 <li><a href="#admin" class="admin-btn" onclick="showAdminLogin()">Admin</a></li>
             </ul>
@@ -34,7 +35,7 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="images/image_logo.png" alt="Klinik Sehat Logo">
+                <img src="images/image_logo1.png" alt="Klinik Sehat Logo">
                 <p>Pusat Perawatan Luka Modern</p>
                 <p>Pusat Perawatan Kecantikan</p>
                 <p>Pusat Perawatan Sunat Modern</p>
@@ -54,7 +55,6 @@
             <p class="section-subtitle">Berbagai jenis perawatan profesional untuk kesehatan dan kecantikan Anda</p>
             
             <div class="services-grid">
-                <!-- Perawatan 1 -->
                 <div class="service-card" onclick="showServiceDetail('perawatan1')">
                     <h3>Perawatan Luka Modern</h3>
                     <div class="service-price">
@@ -63,7 +63,6 @@
                     <button class="service-btn">Detail Layanan</button>
                 </div>
 
-                <!-- Perawatan 2 -->
                 <div class="service-card" onclick="showServiceDetail('perawatan2')">
                     <h3>Perawatan Kecantikan</h3>
                     <div class="service-price">
@@ -72,7 +71,6 @@
                     <button class="service-btn">Detail Layanan</button>
                 </div>
 
-                <!-- Perawatan 3 -->
                 <div class="service-card" onclick="showServiceDetail('perawatan3')">
                     <h3>Sunat Modern</h3>
                     <div class="service-price">
@@ -81,7 +79,6 @@
                     <button class="service-btn">Detail Layanan</button>
                 </div>
 
-                <!-- Perawatan 4 -->
                 <div class="service-card" onclick="showServiceDetail('perawatan4')">
                     <h3>Hipnoterapi</h3>
                     <div class="service-price">
@@ -90,7 +87,6 @@
                     <button class="service-btn">Detail Layanan</button>
                 </div>
 
-                <!-- Perawatan 5 -->
                 <div class="service-card" onclick="showServiceDetail('perawatan5')">
                     <h3>Produk Kecantikan</h3>
                     <div class="service-price">
@@ -103,7 +99,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery">
+    <section id="gallery" class="gallery">
         <div class="container">
             <h2>Galeri Klinik</h2>
             <p class="section-subtitle">Lihat suasana dan fasilitas klinik kami</p>
