@@ -81,15 +81,6 @@ const serviceDetails = {
                 id: "luka-diabetes",
                 name: "Luka Diabetes",
                 description: "Perawatan khusus untuk luka pada penderita diabetes dengan penanganan ekstra hati-hati",
-                features: [
-                    "Pemeriksaan kadar gula darah",
-                    "Debridement luka diabetes",
-                    "Perawatan dengan dressing khusus",
-                    "Monitoring tanda infeksi",
-                    "Edukasi perawatan luka diabetes",
-                    "Rujukan ke dokter spesialis jika diperlukan"
-                ],
-                duration: "45-60 menit",
                 price: "Rp 300.000 - 450.000",
                 image: "🩺"
             },
@@ -97,15 +88,6 @@ const serviceDetails = {
                 id: "luka-bakar",
                 name: "Luka Bakar",
                 description: "Penanganan profesional untuk luka bakar derajat 1 dan 2",
-                features: [
-                    "Assessment tingkat keparahan luka bakar",
-                    "Pembersihan dan cooling area luka",
-                    "Aplikasi salep khusus luka bakar",
-                    "Dressing steril anti lengket",
-                    "Manajemen nyeri",
-                    "Edukasi perawatan lanjutan di rumah"
-                ],
-                duration: "30-50 menit",
                 price: "Rp 250.000 - 400.000",
                 image: "🔥"
             }
@@ -120,15 +102,6 @@ const serviceDetails = {
                 id: "laser-tato",
                 name: "Laser Tato",
                 description: "Penghapusan tato dengan teknologi laser modern yang aman dan efektif",
-                features: [
-                    "Konsultasi pra-perawatan gratis",
-                    "Skin test dan patch test",
-                    "Sesi laser dengan teknologi Q-switched",
-                    "Perawatan pasca laser",
-                    "Krim khusus untuk penyembuhan",
-                    "Multiple sesi hingga hasil maksimal"
-                ],
-                duration: "60-90 menit per sesi",
                 price: "Rp 500.000 - 1.500.000 per sesi",
                 image: "⚡"
             },
@@ -136,14 +109,6 @@ const serviceDetails = {
                 id: "kutil",
                 name: "Perawatan Kutil",
                 description: "Penanganan medis untuk berbagai jenis kutil dengan hasil optimal",
-                features: [
-                    "Diagnosis jenis kutil",
-                    "Cryotherapy (pembekuan)",
-                    "Laser excision jika diperlukan",
-                    "Perawatan pasca tindakan",
-                    "Obat topical khusus",
-                    "Kontrol evaluasi hasil"
-                ],
                 duration: "30-45 menit",
                 price: "Rp 200.000 - 600.000",
                 image: "🔍"
@@ -159,16 +124,6 @@ const serviceDetails = {
                 id: "sunat-ring",
                 name: "Sunat Ring",
                 description: "Teknik sunat modern menggunakan ring dengan proses cepat dan minim rasa sakit",
-                features: [
-                    "Konsultasi pra-sunat gratis",
-                    "Pemeriksaan kesehatan umum",
-                    "Sunat dengan metode ring",
-                    "Anestesi lokal",
-                    "Ring khusus yang aman",
-                    "Perawatan pasca sunat",
-                    "Kontrol lepas ring (5-7 hari)"
-                ],
-                duration: "30-45 menit",
                 price: "Rp 1.500.000 - 2.500.000",
                 image: "💍"
             }
@@ -183,16 +138,21 @@ const serviceDetails = {
                 id: "berhenti-merokok",
                 name: "Berhenti Merokok",
                 description: "Program hipnoterapi khusus untuk mengatasi kecanduan rokok secara permanen",
-                features: [
-                    "Konsultasi awal mendalam",
-                    "Assessment tingkat kecanduan",
-                    "Sesi hipnoterapi khusus anti rokok",
-                    "Teknik anchor dan trigger removal",
-                    "Audio terapi untuk reinforcement",
-                    "Program follow-up 30 hari",
-                    "Support system selama proses"
-                ],
-                duration: "90-120 menit",
+
+                price: "Rp 600.000 - 900.000",
+                image: "🚭"
+            }
+        ]
+    },
+    perawatan5: {
+        title: "Terapi Hipnoterapi",
+        description: "Pilih jenis terapi hipnoterapi yang sesuai dengan kebutuhan Anda",
+        type: "checkbox",
+        options: [
+            {
+                id: "berhenti-merokok",
+                name: "Berhenti Merokok",
+                description: "Program hipnoterapi khusus untuk mengatasi kecanduan rokok secara permanen",
                 price: "Rp 600.000 - 900.000",
                 image: "🚭"
             }
