@@ -16,13 +16,6 @@ const serviceDetails = {
                 description: "Perawatan khusus untuk luka pada penderita diabetes dengan penanganan ekstra hati-hati",
                 price: "Rp 300.000 - 450.000",
                 image: "🩺",
-                features: [
-                    "Pembersihan luka steril",
-                    "Perawatan luka diabetes khusus",
-                    "Monitoring perkembangan",
-                    "Konsultasi perawatan lanjutan"
-                ],
-                duration: "45-60 menit"
             },
             {
                 id: "luka-bakar",
@@ -30,13 +23,6 @@ const serviceDetails = {
                 description: "Penanganan profesional untuk luka bakar derajat 1 dan 2",
                 price: "Rp 250.000 - 400.000",
                 image: "🔥",
-                features: [
-                    "Penanganan luka bakar",
-                    "Pencegahan infeksi",
-                    "Perawatan kulit pasca luka bakar",
-                    "Konsultasi perawatan harian"
-                ],
-                duration: "30-45 menit"
             }
         ]
     },
@@ -51,13 +37,6 @@ const serviceDetails = {
                 description: "Penghapusan tato dengan teknologi laser modern yang aman dan efektif",
                 price: "Rp 500.000 - 1.500.000 per sesi",
                 image: "⚡",
-                features: [
-                    "Teknologi laser modern",
-                    "Konsultasi sebelum perawatan",
-                    "Perawatan pasca laser",
-                    "Evaluasi hasil perawatan"
-                ],
-                duration: "60-90 menit"
             },
             {
                 id: "kutil",
@@ -65,13 +44,6 @@ const serviceDetails = {
                 description: "Penanganan medis untuk berbagai jenis kutil dengan hasil optimal",
                 price: "Rp 200.000 - 600.000",
                 image: "🔍",
-                features: [
-                    "Diagnosis jenis kutil",
-                    "Penanganan medis yang tepat",
-                    "Pencegahan penyebaran",
-                    "Perawatan pasca tindakan"
-                ],
-                duration: "30-45 menit"
             }
         ]
     },
@@ -86,14 +58,6 @@ const serviceDetails = {
                 description: "Teknik sunat modern menggunakan ring dengan proses cepat dan minim rasa sakit",
                 price: "Rp 1.500.000 - 2.500.000",
                 image: "💍",
-                features: [
-                    "Teknik sunat modern",
-                    "Minim rasa sakit",
-                    "Proses cepat",
-                    "Perawatan pasca sunat",
-                    "Konsultasi gratis"
-                ],
-                duration: "30-45 menit"
             }
         ]
     },
@@ -108,13 +72,6 @@ const serviceDetails = {
                 description: "Program hipnoterapi khusus untuk mengatasi kecanduan rokok secara permanen",
                 price: "Rp 600.000 - 900.000",
                 image: "🚭",
-                features: [
-                    "Konsultasi awal mendalam",
-                    "Sesi hipnoterapi intensif",
-                    "Teknik self-hypnosis",
-                    "Follow-up dan evaluasi"
-                ],
-                duration: "90-120 menit"
             }
         ]
     },
@@ -129,13 +86,6 @@ const serviceDetails = {
                 description: "Serum dengan kandungan vitamin C tinggi untuk mencerahkan dan meremajakan kulit",
                 price: "Rp 250.000",
                 image: "✨",
-                features: [
-                    "Kandungan Vitamin C 20%",
-                    "Brightening dan anti-aging",
-                    "Tekstur ringan cepat menyerap",
-                    "Cocok untuk semua jenis kulit"
-                ],
-                duration: "Konsultasi 15 menit"
             },
             {
                 id: "facial-cleanser",
@@ -143,13 +93,6 @@ const serviceDetails = {
                 description: "Pembersih wajah lembut yang membersihkan tanpa mengeringkan kulit",
                 price: "Rp 120.000",
                 image: "🧼",
-                features: [
-                    "Formula lembut pH balanced",
-                    "Membersihkan menyeluruh",
-                    "Tidak membuat kulit kering",
-                    "Cocok untuk kulit sensitif"
-                ],
-                duration: "Konsultasi 15 menit"
             }
         ]
     }
@@ -164,9 +107,7 @@ class ModalManager {
 
     init() {
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal-close') || 
-                e.target.classList.contains('close') ||
-                (e.target.classList.contains('modal') && !e.target.closest('.modal-content'))) {
+            if (e.target.classList.contains('modal')) {
                 this.closeAll();
             }
         });
@@ -204,91 +145,6 @@ class ModalManager {
 
 const modalManager = new ModalManager();
 
-// ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scroll untuk semua anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            
-            // Skip untuk link yang mengarah ke modal atau admin
-            if (href === '#admin' || href === '#') return;
-            
-            e.preventDefault();
-            
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Close mobile menu jika terbuka
-                if (hamburger && navMenu) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
-            }
-        });
-    });
-
-    // Mobile Navigation
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Close mobile menu when clicking on links
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (hamburger && navMenu) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    });
-
-    // Register modals
-    const modals = {
-        'serviceModal': document.getElementById('serviceModal'),
-        'adminLoginModal': document.getElementById('adminLoginModal'),
-        'adminDashboard': document.getElementById('adminDashboard'),
-        'cartModal': document.getElementById('cartModal')
-    };
-    
-    Object.entries(modals).forEach(([id, element]) => {
-        if (element) {
-            modalManager.registerModal(id, element);
-        }
-    });
-    
-    // Initialize cart
-    updateCart();
-    
-    console.log('Klinik Sehat Website initialized successfully!');
-});
-
-// ===== NAVIGATION FUNCTIONS =====
-function scrollToServices() {
-    document.getElementById('services').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-function showBookingModal() {
-    const selectedData = JSON.parse(localStorage.getItem('selectedService') || '{}');
-    if (selectedData.serviceId) {
-        showBookingForm();
-    } else {
-        showNotification('Silakan pilih layanan terlebih dahulu', 'warning');
-    }
-}
-
 // ===== SERVICE DETAIL MODAL FUNCTIONS =====
 function showServiceDetail(serviceId) {
     const service = serviceDetails[serviceId];
@@ -311,20 +167,8 @@ function showServiceDetail(serviceId) {
                 </div>
                 
                 <div class="option-details">
-                    <div class="option-features">
-                        <h4>Fitur Perawatan:</h4>
-                        <ul>
-                            ${option.features.map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                    
-                    <div class="option-meta">
-                        <div class="option-price">
-                            <strong>Harga:</strong> ${option.price}
-                        </div>
-                        <div class="option-duration">
-                            <strong>Durasi:</strong> ${option.duration}
-                        </div>
+                    <div class="option-price">
+                        <strong>Harga:</strong> ${option.price}
                     </div>
                 </div>
             </div>
@@ -445,8 +289,7 @@ function proceedToBooking(serviceId) {
             selectedOptions.push({
                 id: option.id,
                 name: option.name,
-                price: option.price,
-                duration: option.duration
+                price: option.price
             });
         }
     });
@@ -586,3 +429,478 @@ function setDefaultAppointmentDate() {
 function setupFormValidation() {
     const phoneInput = document.getElementById('patientPhone');
     if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            
+            if (this.value.length < 10 || this.value.length > 13) {
+                this.setCustomValidity('Nomor telepon harus 10-13 digit');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    }
+
+    const dateInput = document.getElementById('appointmentDate');
+    if (dateInput) {
+        dateInput.addEventListener('change', function(e) {
+            const selectedDate = new Date(this.value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (selectedDate < today) {
+                this.setCustomValidity('Tidak bisa memilih tanggal yang sudah lewat');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    }
+}
+
+function goBackToServiceSelection() {
+    const selectedData = JSON.parse(localStorage.getItem('selectedService') || '{}');
+    if (selectedData.serviceId) {
+        showServiceDetail(selectedData.serviceId);
+    } else {
+        modalManager.closeAll();
+    }
+}
+
+function submitBookingForm() {
+    const formData = new FormData(document.getElementById('patientBookingForm'));
+    const selectedData = JSON.parse(localStorage.getItem('selectedService') || '{}');
+    
+    if (!validateBookingForm(formData)) {
+        return;
+    }
+    
+    const bookingData = {
+        bookingId: 'BK' + Date.now(),
+        patientInfo: {
+            name: formData.get('patientName'),
+            phone: formData.get('patientPhone'),
+            address: formData.get('patientAddress'),
+            notes: formData.get('patientNotes') || 'Tidak ada catatan'
+        },
+        appointmentInfo: {
+            date: formData.get('appointmentDate'),
+            time: formData.get('appointmentTime'),
+            datetime: new Date(formData.get('appointmentDate') + 'T' + formData.get('appointmentTime'))
+        },
+        serviceInfo: selectedData,
+        status: 'pending',
+        bookingDate: new Date().toISOString(),
+        lastUpdated: new Date().toISOString()
+    };
+    
+    if (saveBookingToStorage(bookingData)) {
+        showBookingConfirmation(bookingData);
+        localStorage.removeItem('selectedService');
+    }
+}
+
+function validateBookingForm(formData) {
+    const name = formData.get('patientName');
+    const phone = formData.get('patientPhone');
+    const address = formData.get('patientAddress');
+    const date = formData.get('appointmentDate');
+    const time = formData.get('appointmentTime');
+    
+    if (!name || !phone || !address || !date || !time) {
+        showNotification('Harap lengkapi semua field yang wajib diisi', 'error');
+        return false;
+    }
+    
+    const nameWords = name.trim().split(/\s+/);
+    if (nameWords.length < 2) {
+        showNotification('Harap masukkan nama lengkap (minimal 2 kata)', 'error');
+        return false;
+    }
+    
+    if (phone.length < 10 || phone.length > 13) {
+        showNotification('Nomor telepon harus 10-13 digit', 'error');
+        return false;
+    }
+    
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    if (selectedDate < today) {
+        showNotification('Tidak bisa memilih tanggal yang sudah lewat', 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+function saveBookingToStorage(bookingData) {
+    try {
+        const existingBookings = JSON.parse(localStorage.getItem('clinicBookings') || '[]');
+        
+        const isDuplicate = existingBookings.some(booking => 
+            booking.patientInfo.phone === bookingData.patientInfo.phone &&
+            booking.serviceInfo.serviceId === bookingData.serviceInfo.serviceId &&
+            booking.appointmentInfo.date === bookingData.appointmentInfo.date
+        );
+        
+        if (isDuplicate) {
+            showNotification('Anda sudah memiliki booking untuk layanan ini di tanggal yang sama', 'warning');
+            return false;
+        }
+        
+        existingBookings.push(bookingData);
+        localStorage.setItem('clinicBookings', JSON.stringify(existingBookings));
+        
+        return true;
+    } catch (error) {
+        console.error('Error saving booking:', error);
+        showNotification('Terjadi error saat menyimpan booking', 'error');
+        return false;
+    }
+}
+
+function showBookingConfirmation(bookingData) {
+    const appointmentDate = new Date(bookingData.appointmentInfo.datetime);
+    const formattedDate = appointmentDate.toLocaleDateString('id-ID', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    const content = `
+        <div class="confirmation-modal">
+            <div class="confirmation-icon">✅</div>
+            <h2>Booking Berhasil!</h2>
+            
+            <div class="confirmation-details">
+                <div class="detail-item">
+                    <strong>Nomor Booking:</strong>
+                    <span>${bookingData.bookingId}</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Nama Pasien:</strong>
+                    <span>${bookingData.patientInfo.name}</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Layanan:</strong>
+                    <span>${bookingData.serviceInfo.serviceName}</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Tanggal & Jam:</strong>
+                    <span>${formattedDate}, ${bookingData.appointmentInfo.time}</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Status:</strong>
+                    <span class="status-pending">Menunggu Konfirmasi</span>
+                </div>
+            </div>
+            
+            <div class="confirmation-message">
+                <p>📞 Kami akan menghubungi Anda di <strong>${bookingData.patientInfo.phone}</strong> 
+                   dalam 1x24 jam untuk konfirmasi jadwal.</p>
+                <p>📍 Pastikan Anda datang 15 menit sebelum jadwal perawatan.</p>
+            </div>
+            
+            <div class="confirmation-actions">
+                <button class="cta-button secondary" onclick="printBookingDetails('${bookingData.bookingId}')">
+                    🖨️ Cetak Detail
+                </button>
+                <button class="cta-button" onclick="modalManager.closeAll()">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('serviceModalContent').innerHTML = content;
+}
+
+function printBookingDetails(bookingId) {
+    const bookings = JSON.parse(localStorage.getItem('clinicBookings') || '[]');
+    const booking = bookings.find(b => b.bookingId === bookingId);
+    
+    if (booking) {
+        const printWindow = window.open('', '_blank');
+        const printContent = `
+            <html>
+                <head>
+                    <title>Booking Confirmation - ${booking.bookingId}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; }
+                        .details { margin: 20px 0; }
+                        .detail-item { margin: 10px 0; }
+                        .footer { margin-top: 30px; font-size: 12px; color: #666; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>Klinik Sehat</h1>
+                        <h2>Konfirmasi Booking</h2>
+                    </div>
+                    <div class="details">
+                        <div class="detail-item"><strong>Nomor Booking:</strong> ${booking.bookingId}</div>
+                        <div class="detail-item"><strong>Nama Pasien:</strong> ${booking.patientInfo.name}</div>
+                        <div class="detail-item"><strong>Telepon:</strong> ${booking.patientInfo.phone}</div>
+                        <div class="detail-item"><strong>Layanan:</strong> ${booking.serviceInfo.serviceName}</div>
+                        <div class="detail-item"><strong>Tanggal:</strong> ${booking.appointmentInfo.date}</div>
+                        <div class="detail-item"><strong>Jam:</strong> ${booking.appointmentInfo.time}</div>
+                    </div>
+                    <div class="footer">
+                        <p>Harap datang 15 menit sebelum jadwal perawatan</p>
+                        <p>Terima kasih atas kepercayaan Anda kepada Klinik Sehat</p>
+                    </div>
+                </body>
+            </html>
+        `;
+        
+        printWindow.document.write(printContent);
+        printWindow.document.close();
+        printWindow.print();
+    }
+}
+
+// ===== NOTIFICATION SYSTEM =====
+function showNotification(message, type = 'info') {
+    const notification = document.getElementById('notification');
+    const notificationText = document.getElementById('notificationText');
+    
+    if (notification && notificationText) {
+        notificationText.textContent = message;
+        
+        if (type === 'error') {
+            notification.style.borderLeftColor = '#ff6b6b';
+        } else if (type === 'success') {
+            notification.style.borderLeftColor = '#4CAF50';
+        } else if (type === 'warning') {
+            notification.style.borderLeftColor = '#ff9800';
+        } else {
+            notification.style.borderLeftColor = '#2c7873';
+        }
+        
+        notification.classList.add('show');
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 5000);
+    }
+}
+
+// ===== ADMIN SYSTEM =====
+function showAdminLogin() {
+    modalManager.openModal('adminLoginModal');
+}
+
+function closeAdminLogin() {
+    modalManager.closeModal('adminLoginModal');
+}
+
+document.getElementById('adminLoginForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('adminUsername').value;
+    const password = document.getElementById('adminPassword').value;
+    
+    if (username === 'admin' && password === 'admin123') {
+        closeAdminLogin();
+        showAdminDashboard();
+        showNotification('🔑 Login admin berhasil!', 'success');
+    } else {
+        showNotification('❌ Username atau password salah!', 'error');
+    }
+});
+
+function showAdminDashboard() {
+    const bookings = JSON.parse(localStorage.getItem('clinicBookings') || '[]');
+    
+    const bookingsTable = document.getElementById('bookingsTable');
+    if (bookingsTable) {
+        if (bookings.length === 0) {
+            bookingsTable.innerHTML = `
+                <tr>
+                    <td colspan="6" style="text-align: center;">Tidak ada data booking</td>
+                </tr>
+            `;
+        } else {
+            bookingsTable.innerHTML = bookings.map(booking => `
+                <tr>
+                    <td>${booking.patientInfo.name}</td>
+                    <td>${booking.serviceInfo.serviceName}</td>
+                    <td>${booking.appointmentInfo.date}</td>
+                    <td>${booking.appointmentInfo.time}</td>
+                    <td>${booking.status}</td>
+                    <td>
+                        <button class="action-btn" onclick="editBooking('${booking.bookingId}')">✏️</button>
+                        <button class="action-btn" onclick="deleteBooking('${booking.bookingId}')">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+    }
+    
+    modalManager.openModal('adminDashboard');
+}
+
+function closeAdminDashboard() {
+    modalManager.closeModal('adminDashboard');
+}
+
+function openAdminTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    document.getElementById(tabName + 'Tab').classList.add('active');
+    event.currentTarget.classList.add('active');
+}
+
+function editBooking(bookingId) {
+    showNotification(`✏️ Mengedit booking: ${bookingId}`, 'info');
+}
+
+function deleteBooking(bookingId) {
+    if (confirm(`Apakah Anda yakin ingin menghapus booking ${bookingId}?`)) {
+        const bookings = JSON.parse(localStorage.getItem('clinicBookings') || '[]');
+        const updatedBookings = bookings.filter(booking => booking.bookingId !== bookingId);
+        localStorage.setItem('clinicBookings', JSON.stringify(updatedBookings));
+        showNotification(`🗑️ Booking ${bookingId} telah dihapus`, 'success');
+        showAdminDashboard();
+    }
+}
+
+// ===== CHAT WIDGET =====
+function toggleChat() {
+    const chatBox = document.querySelector('.chat-box');
+    chatOpen = !chatOpen;
+    
+    if (chatBox) {
+        if (chatOpen) {
+            chatBox.classList.add('show');
+        } else {
+            chatBox.classList.remove('show');
+        }
+    }
+}
+
+function sendChatMessage() {
+    const chatInput = document.getElementById('chatMessage');
+    const chatMessages = document.querySelector('.chat-messages');
+    
+    if (chatInput && chatInput.value.trim() !== '') {
+        const userMessage = document.createElement('div');
+        userMessage.className = 'chat-message user';
+        userMessage.textContent = chatInput.value;
+        chatMessages.appendChild(userMessage);
+        
+        chatInput.value = '';
+        
+        setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message bot';
+            botMessage.textContent = 'Terima kasih atas pesan Anda! Tim kami akan membalas segera. Untuk pertanyaan mendesak, silakan hubungi 0812-3456-7890.';
+            chatMessages.appendChild(botMessage);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+}
+
+document.getElementById('chatMessage')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendChatMessage();
+    }
+});
+
+// ===== GALLERY SYSTEM =====
+function openGallery(imageId) {
+    showNotification(`🖼️ Membuka galeri: ${imageId}`, 'info');
+}
+
+// ===== NAVIGATION FUNCTIONS =====
+function scrollToServices() {
+    document.getElementById('services').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+function showBookingModal() {
+    const selectedData = JSON.parse(localStorage.getItem('selectedService') || '{}');
+    if (selectedData.serviceId) {
+        showBookingForm();
+    } else {
+        showNotification('Silakan pilih layanan terlebih dahulu', 'warning');
+    }
+}
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll untuk anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#admin' || href === '#') return;
+            
+            e.preventDefault();
+            
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Close mobile menu
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                if (hamburger && navMenu) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    // Mobile Navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (hamburger && navMenu) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    }
+
+    // Register modals
+    const modals = {
+        'serviceModal': document.getElementById('serviceModal'),
+        'adminLoginModal': document.getElementById('adminLoginModal'),
+        'adminDashboard': document.getElementById('adminDashboard')
+    };
+    
+    Object.entries(modals).forEach(([id, element]) => {
+        if (element) {
+            modalManager.registerModal(id, element);
+        }
+    });
+    
+    console.log('Klinik Sehat Website initialized successfully!');
+});

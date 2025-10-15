@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
         <nav class="navbar">
             <div class="logo">
@@ -35,7 +35,7 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="images/image_logo1.png" alt="Klinik Sehat Logo">
+                <img src="images/image_logo.png" alt="Klinik Sehat Logo">
                 <p>Pusat Perawatan Luka Modern</p>
                 <p>Pusat Perawatan Kecantikan</p>
                 <p>Pusat Perawatan Sunat Modern</p>
@@ -162,9 +162,7 @@
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="modalManager.closeAll()">&times;</span>
-            <div id="serviceModalContent">
-                <!-- Content will be loaded here -->
-            </div>
+            <div id="serviceModalContent"></div>
         </div>
     </div>
 
@@ -212,9 +210,7 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody id="bookingsTable">
-                            <!-- Bookings will be loaded here -->
-                        </tbody>
+                        <tbody id="bookingsTable"></tbody>
                     </table>
                 </div>
             </div>
@@ -231,24 +227,6 @@
         </div>
     </div>
 
-    <!-- Cart Modal -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCart()">&times;</span>
-            <h2>Keranjang Belanja</h2>
-            <div id="cartItems">
-                <!-- Cart items will be loaded here -->
-            </div>
-            <div class="cart-total">
-                <strong>Total: Rp <span id="cartTotal">0</span></strong>
-            </div>
-            <div class="cart-actions">
-                <button class="cta-button secondary" onclick="closeCart()">Lanjut Belanja</button>
-                <button class="cta-button" onclick="checkout()">Checkout</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Notification -->
     <div id="notification" class="notification">
         <span id="notificationText"></span>
@@ -256,9 +234,7 @@
 
     <!-- Live Chat Widget -->
     <div class="chat-widget">
-        <button class="chat-toggle" onclick="toggleChat()">
-            💬
-        </button>
+        <button class="chat-toggle" onclick="toggleChat()">💬</button>
         <div class="chat-box">
             <div class="chat-header">
                 <h4>Butuh Bantuan?</h4>
